@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DJ Rodriz</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="#releases">Songs</a></li>
+        <li><a href="#visualizers">Visualizers</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="video-background">
+      <!-- Placeholder video. User should replace this. -->
+      <video autoplay loop muted playsinline
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111'/%3E%3C/svg%3E"
+        style="background: #111;">
+        <source src="/videos/rodriz.mp4" type="video/mp4">
+      </video>
+      <canvas id="noise-canvas"></canvas>
+      <div class="dark-overlay"></div>
+    </div>
+
+    <div class="hero-content reveal">
+      <!-- Replaced Text Logo with Image -->
+      <img src="/fotos/logo-dj-rodriz.PNG" alt="DJ RODRIZ" class="hero-logo-img"
+        style="max-width: 600px; width: 80%; margin-bottom: 2rem;">
+
+      <h2 class="hero-subtitle">DJ & PRODUCER</h2>
+
+      <div class="footer-links" style="margin-top: 15rem;">
+        <a href="https://www.instagram.com/rodrizdj/?hl=pt-br" target="_blank" aria-label="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP" target="_blank" aria-label="Spotify"><i
+            class="fab fa-spotify"></i></a>
+        <a href="https://www.youtube.com/djrodriz1" target="_blank" aria-label="YouTube"><i
+            class="fab fa-youtube"></i></a>
+        <a href="https://soundcloud.com/rodrizdj" target="_blank" aria-label="SoundCloud"><i
+            class="fab fa-soundcloud"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Release Section -->
+  <section id="releases">
+    <div id="latest-release">
+      <div class="marquee-container">
+        <div class="marquee-text">
+          <span>LANÇAMENTO LANÇAMENTO LANÇAMENTO LANÇAMENTO </span>
+          <span>LANÇAMENTO LANÇAMENTO LANÇAMENTO LANÇAMENTO </span>
+        </div>
+      </div>
+
+      <div class="release-content">
+        <div class="album-cover">
+          <div class="album-shake-wrapper">
+            <img src="/fotos/capa-musica-dj-rodriz.png" alt="Latest Release Cover" loading="lazy">
+          </div>
+        </div>
+        <div class="release-info">
+          <h3 class="release-title">ESTILO CACHORRO</h3>
+          <div class="release-links">
+            <a href="https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP" target="_blank"><i
+                class="fab fa-spotify"></i> Ouça no Spotify</a>
+            <a href="https://www.youtube.com/djrodriz1" target="_blank"><i class="fab fa-youtube"></i> Ouça no
+              Youtube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Releases Section -->
+  <section id="recent-releases" class="reveal">
+    <div class="section-title-vertical">
+      <h2>RECENT RELEASES</h2>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="nav-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+
+      <div class="carousel-track">
+        <!-- Updated Spotify Embeds -->
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/1T0Za0ldouSRjRMH94SwWI?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6i1q1P90W9fsW6S9UMv1ay?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6klY5Kay7mnIz1I2qTH3Kf?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/2ohAdFi4UFzNCtSwwyvKba?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/3OXMbP3WG2XVrMELZYlmG6?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/5esvgH0I4F6wyvPShJT7cD?utm_source=generator" frameBorder="0"
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <button class="nav-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- Visualizers Section -->
+  <section id="visualizers" class="reveal">
+    <div class="section-title-vertical">
+      <h2>VISUALIZERS</h2>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="nav-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+
+      <div class="carousel-track">
+        <!-- YouTube Embeds -->
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/x9mZ-fCKjLQ?si=DUg5z07LRXuDKFFL"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Sr9h-0vTMvU?si=ZmIBCTzjFf0OdMv5"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sHf7p-rlgVI?si=xouNFv2wtsCiygTp"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/G2Ez0dVPx-g?si=qXUmGrIddtIhhrJ6"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pQWnIYFiUaU?si=y8R-TTts3gqNZ1MU"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="release-card video-card">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/JwF-MtrCWpM?si=zLOHt9EmYbfk4EVv"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <button class="nav-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- Tour Dates Section -->
+  <section id="shows" class="reveal">
+    <h2 class="section-header">SHOWS</h2>
+    <div class="tour-list">
+      <div class="tour-item">
+        <div class="tour-date">
+          <span class="day">06</span>
+          <span class="month">FEV</span>
+        </div>
+        <div class="tour-info">
+          <span class="city">CURITIBA, PR</span>
+          <span class="venue">LEVEL CLUB</span>
+        </div>
+      </div>
+      <div class="tour-item">
+        <div class="tour-date">
+          <span class="day">07</span>
+          <span class="month">FEV</span>
+        </div>
+        <div class="tour-info">
+          <span class="city">FLORIANOPOLIS, SC</span>
+          <span class="venue">P12 BEACH CLUB</span>
+        </div>
+      </div>
+      <div class="tour-item">
+        <div class="tour-date">
+          <span class="day">13</span>
+          <span class="month">FEV</span>
+        </div>
+        <div class="tour-info">
+          <span class="city">JOINVILLE, SC</span>
+          <span class="venue">SQUARE GARDEN</span>
+        </div>
+      </div>
+      <div class="tour-item">
+        <div class="tour-date">
+          <span class="day">14</span>
+          <span class="month">FEV</span>
+        </div>
+        <div class="tour-info">
+          <span class="city">PORTO BELO, SC</span>
+          <span class="venue">SURF CLUB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="reveal">
+    <div class="contact-container">
+      <div class="contact-image">
+        <img src="/fotos/dj-rodriz-foto.png" alt="DJ Rodriz" loading="lazy">
+      </div>
+      <div class="contact-content">
+        <p class="artist-bio">
+          Rodriz é DJ e produtor musical, iniciou sua trajetória aos
+          16 anos, produzindo com foco em energia de pista e impacto sonoro.<br><br>
+          Aos 18 anos, consolidou seu nome e foi reconhecido em 2025 como uma das revelações
+          do ano.<br><br> Com uma forte leitura de pista, chega em 2026 um dos nomes mais promissores da
+          nova geração em ascensão.
+        </p>
+        <h2 class="contact-headline">LEVE DJ RODRIZ PARA O SEU EVENTO</h2>
+        <a href="mailto:contato@djrodriz.com" class="main-contact-btn">CONTRATE UM SHOW</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bookings">
+      <h3>BOOKINGS</h3>
+      <p>47 99149-8083 (PR, SC e RS)</p>
+      <p>42 99152-8917 (CENTRO, SUDESTE e NORTE)</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://www.instagram.com/rodrizdj/?hl=pt-br" target="_blank" aria-label="Instagram"><i
+          class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP" target="_blank" aria-label="Spotify"><i
+          class="fab fa-spotify"></i></a>
+      <a href="https://www.youtube.com/djrodriz1" target="_blank" aria-label="YouTube"><i
+          class="fab fa-youtube"></i></a>
+      <a href="https://soundcloud.com/rodrizdj" target="_blank" aria-label="SoundCloud"><i
+          class="fab fa-soundcloud"></i></a>
+    </div>
+    <div class="footer-copy">
+      <p>&copy; 2026 DJ Rodriz – Todos os direitos reservados</p>
+      <p>Desenvolvido por <a href="#" style="text-decoration: underline;">GRÜV.</a></p>
+    </div>
+  </footer>
+
+  <div id="app"></div>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

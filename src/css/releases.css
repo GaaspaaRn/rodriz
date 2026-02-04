@@ -1,0 +1,551 @@
+/* Global Variables for Layout Consistency */
+:root {
+    --mobile-gutter: 2rem;
+    /* Standard gutter */
+    --card-width-mobile: 80vw;
+    /* Wider card */
+    --card-height-desktop: 450px;
+    --color-neon-white: #fff;
+    --color-neon-glow: rgba(255, 255, 255, 0.6);
+}
+
+/* Latest Release Section */
+#latest-release {
+    position: relative;
+    width: 100%;
+    /* Removed fixed height. Let content drive. */
+    background-color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: visible;
+    /* Extra top padding to push content down so overlap works, 
+       but we use negative margin on album cover to pull it up. */
+    padding: 0 1rem 0 1rem;
+    z-index: 50;
+}
+
+.marquee-container {
+    position: absolute;
+    /* Center on top edge to match Album center (which sits on the line) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 20;
+    /* Behind Album (60) but clearly visible */
+    opacity: 1;
+    /* Solid per request */
+    pointer-events: none;
+    mix-blend-mode: normal;
+}
+
+.marquee-text {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollText 20s linear infinite;
+}
+
+.marquee-text span {
+    font-family: var(--font-display);
+    font-size: 15vw;
+    font-weight: 900;
+    /* Solid White */
+    color: var(--color-white);
+    -webkit-text-stroke: 0;
+    padding-right: 2rem;
+    letter-spacing: -0.05em;
+    opacity: 0.2;
+    /* Subtle opacity so it doesn't kill readability, or 1 if user wants FULL white. User said "BRANCO", passing "POR TRAS". I'll default to 0.15 opacity white to be stylish, or full opaque. User stressed "BRANCO". I'll use 0.3 to start, solid white is huge distraction. Actually user said "LANÇAMENTO em BRANCO". I will try 0.5. */
+    opacity: 0.5;
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.release-content {
+    position: relative;
+    z-index: 50;
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 0;
+    /* Ensure content sits at the bottom of the padding block */
+    padding-bottom: 2rem;
+}
+
+/* ALBUM COVER LAYOUT - Overlap Hero */
+.album-cover {
+    /* Aggressive Overlap: Pulls up into Hero */
+    margin-top: -25vh;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 60;
+    /* Higher than hero content */
+    perspective: 1000px;
+    /* For 3D shake */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* SHAKE WRAPPER - Handles Animation */
+.album-shake-wrapper {
+    width: 100%;
+    max-width: 800px;
+    will-change: transform;
+    /* Remove shadow/background as requested */
+    background: transparent;
+    box-shadow: none;
+    /* Initial Entry Animation */
+    animation: slideUpFade 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.album-shake-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    /* Remove deep shadow */
+    box-shadow: none;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    /* Use drop-shadow for image contour if transparent png */
+    display: block;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.release-info {
+    margin-top: 1rem;
+}
+
+.release-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    /* Responsive giant type */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    /* Neon Glow Effect */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: -0.02em;
+}
+
+.release-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.release-links a {
+    /* Match Hero Button Styling */
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    /* padding: 0.8rem 1.5rem; Matches Hero */
+    padding: 0.8rem 1.5rem;
+
+    /* Hero Glassmorphism */
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.release-links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+}
+
+
+/* Recent Releases */
+#recent-releases {
+    background-color: var(--color-black);
+    padding: 2rem 2rem 6rem 2rem;
+    /* Comfortable spacing */
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+/* Desktop Sidebar Title */
+.section-title-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 1.5rem;
+    height: var(--card-height-desktop);
+    /* Matches Card Height EXACTLY */
+    display: flex;
+    align-items: center;
+    /* Vertical center (horizontal in writing-mode) */
+    justify-content: center;
+    /* Horizontal center (vertical in writing-mode) */
+    margin-top: 0;
+    /* Clear margins */
+}
+
+.section-title-vertical h2 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.2rem;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+.carousel-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+/* Nav Buttons Desktop */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.nav-btn:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Desktop Card Styling - Clean Embed Style */
+.release-card {
+    height: var(--card-height-desktop);
+    min-width: calc((100% - 4rem) / 3);
+    width: calc((100% - 4rem) / 3);
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    overflow: hidden;
+    /* Removed Background and Border for Clean Look */
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Hover Effect Desktop */
+.release-card:hover {
+    transform: translateY(-5px);
+    /* Subtle shadow only on hover if needed, or remove completely */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+}
+
+.release-card iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    /* Ensure radius implies on iframe if transparent bg */
+    border-radius: 12px;
+}
+
+
+/* MOBILE OVERRIDES */
+@media (max-width: 768px) {
+    #latest-release {
+        padding-top: 4rem;
+        /* Ensure marquee is positioned relative to this container which now holds the shifted album */
+        overflow: visible;
+    }
+
+    .album-cover {
+        /* "Half" overlap requested. 
+           -22vh approximates the center of the image sitting on the section line. */
+        margin-top: -22vh;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 20;
+        /* Ensure it's above the marquee */
+    }
+
+    /* Mobile Marquee Override */
+    .marquee-container {
+        /* "Detached" and Centered behind the album.
+           Since the album is pulled up by 22vh, its center is roughly 
+           at -11vh relative to the section top. 
+           We position the marquee there. */
+        top: 0;
+        transform: translateY(-50%) translateY(-11vh);
+        /* Center vertically + offset for album overlap */
+        opacity: 0.8;
+        /* High visibility as requested */
+        z-index: 10;
+        /* Behind album (20) */
+        height: 100vh;
+        /* Allow it to take space if needed for vertical centering calculation */
+        display: flex;
+        align-items: center;
+    }
+
+    .marquee-text span {
+        /* Solid White */
+        color: #fff;
+        -webkit-text-stroke: 0;
+        font-size: 18vw;
+        opacity: 1;
+    }
+
+    /* Stack Sections - Fix Conflict */
+    #recent-releases,
+    #visualizers {
+        flex-direction: column !important;
+        padding: 0 0 3rem 0 !important;
+        /* Force override of visualizers.css */
+        gap: 0;
+        align-items: center;
+        /* Center everything on mobile */
+        width: 100%;
+        overflow: visible;
+        /* Allow arrows to live outside if needed */
+    }
+
+    #visualizers {
+        padding-top: 0 !important;
+        /* Remove top padding */
+        /* Spacing between sections */
+        border: none;
+    }
+
+    /* Title Alignment - Standardized */
+    .section-title-vertical {
+        writing-mode: horizontal-tb !important;
+        transform: none !important;
+        border: none;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        /* Center Title */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        height: auto;
+    }
+
+    .section-title-vertical h2 {
+        font-size: 2rem;
+        /* Big standard title */
+        letter-spacing: 0.2rem;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Tighten Visualizers spacing specifically as requested */
+    #visualizers .section-title-vertical {
+        margin-bottom: -0.5rem;
+        /* Pull closer */
+    }
+
+    /* REMOVE MARQUEE ON MOBILE */
+    .marquee-container {
+        display: none !important;
+    }
+
+    /* Carousel Wrapper */
+    .carousel-wrapper {
+        width: 100%;
+        padding-top: 0;
+        display: block;
+        position: relative;
+        /* Context for arrows */
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0 var(--mobile-gutter);
+        /* Center standard */
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        box-sizing: border-box;
+        scrollbar-width: none;
+        /* Hide scrollbar */
+        align-items: center;
+        /* Vertically center cards in track */
+        height: auto;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Mobile Cards - Fixed Height for Stability */
+    .release-card {
+        min-width: var(--card-width-mobile);
+        width: var(--card-width-mobile);
+        /* Force Height to fix Spotify shrinking */
+        height: 220px;
+        /* aspect-ratio: 16/9; Removed to ensure robustness */
+
+        border-radius: 12px;
+        scroll-snap-align: center;
+        /* Center snap */
+        background: transparent;
+        box-shadow: none;
+
+        /* Flex center to ensure iframes behave */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .release-card iframe {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100%;
+        /* Force fill */
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* Restore Arrows on Mobile - Flush and Consistent */
+    .nav-btn {
+        display: flex;
+        /* Show them! */
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        border-radius: 50%;
+        /* Ensure distinct position */
+        position: absolute;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+
+    .next-btn {
+        right: 5px;
+    }
+
+    /* Force visualizer cards to behave identical to release cards */
+    .video-card {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Mobile Buttons Link Fit */
+    .release-links {
+        gap: 0.5rem;
+        /* Reduce gap significantly */
+        flex-wrap: nowrap;
+        /* Force single line */
+        width: 100%;
+        justify-content: center;
+        padding: 0 1rem;
+        /* Prevent edge touching */
+        box-sizing: border-box;
+    }
+
+    .release-links a {
+        font-family: var(--font-primary);
+        font-size: 0.7rem;
+        /* Smaller text */
+        padding: 0.6rem 0.5rem;
+        /* Compact padding */
+        width: auto;
+        white-space: nowrap;
+        /* No wrapping */
+        flex: 1;
+        /* Grow to fill space equitably */
+        justify-content: center;
+
+        /* Ensure Glassmorphism Matches Hero on Mobile */
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Match Title Size */
+    .release-title {
+        font-size: 1.5rem;
+        /* Standardized to match section headers (was 2rem, but let's fit layout) */
+        /* Actually user asked to match 'Recent Releases' title which is 2rem. */
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.1em;
+    }
+}

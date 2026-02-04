@@ -1,0 +1,374 @@
+/* Hero Section */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: var(--color-white);
+}
+
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================================
+   NOISE OVERLAY — FINE ANIMATED GRAIN
+   Cinematic / Club / Premium
+   ================================ */
+
+/* ================================
+   NOISE CANVAS — PROCEDURAL GRAIN
+   ================================ */
+
+#noise-canvas {
+    position: absolute;
+    /* Using absolute inside relative container is safer than fixed for layering */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    /* 
+       ORDER: Video (0) -> Grain (1) -> Dark Overlay (2) 
+       We remove z-index 999 into the stack natural order or explicit low z-index.
+    */
+    z-index: 1;
+
+    opacity: 0.6;
+    /* Increased opacity because it's now UNDER the dark overlay */
+    mix-blend-mode: overlay;
+    /* Reage melhor em fundos escuros */
+}
+
+/* Remove old class styles if present to keep file clean */
+.noise-overlay {
+    display: none;
+}
+
+/* ================================
+   NOISE OVERLAY — FINE MICRO GRAIN
+   ================================ */
+
+/* The original .noise-overlay block is now hidden by the above rule */
+/*
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+    background-repeat: repeat;
+
+    opacity: 1;
+
+    pointer-events: none;
+
+    animation: grainAnimation 0.35s steps(6) infinite;
+
+    mix-blend-mode: soft-light;
+
+    z-index: 999;
+}
+*/
+
+/* ================================
+   GRAIN ANIMATION — MICRO MOVEMENT
+   ================================ */
+
+@keyframes grainAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-1%, -2%);
+    }
+
+    20% {
+        transform: translate(-3%, 1%);
+    }
+
+    30% {
+        transform: translate(2%, -3%);
+    }
+
+    40% {
+        transform: translate(-2%, 3%);
+    }
+
+    50% {
+        transform: translate(-3%, 2%);
+    }
+
+    60% {
+        transform: translate(3%, 0%);
+    }
+
+    70% {
+        transform: translate(0%, 3%);
+    }
+
+    80% {
+        transform: translate(1%, 4%);
+    }
+
+    90% {
+        transform: translate(-2%, 2%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* ================================
+   OPTIONAL VIGNETTE (SUBTLE)
+   ================================ */
+
+.noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, 0.28) 100%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+/* Secondary layer intentionally removed */
+.noise-overlay::after {
+    display: none;
+}
+
+/* ================================
+   DARK OVERLAY — READABILITY LAYER
+   ================================ */
+
+.dark-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.6) 80%,
+            rgba(0, 0, 0, 1) 100%);
+    pointer-events: none;
+}
+
+/* Hero Content */
+.hero-content {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    padding-bottom: 20vh;
+    /* More space for overlap */
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.hero-subtitle {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-top: -1rem;
+    opacity: 0.9;
+}
+
+/* Buttons */
+.cta-icons {
+    display: flex;
+    gap: 1.5rem;
+    /* Increased gap for cleaner look */
+    margin-top: 8rem;
+    /* Moved SIGNIFICANTLY lower as requested (was 4rem) */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Global Hero Buttons - Updated to Icon-Only Circle Style */
+.icon-btn {
+    /* Glassmorphism Configuration */
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    /* Layout - Fixed Circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    /* Slightly larger for better hit target */
+    height: 60px;
+    min-width: 60px;
+    /* Enforce size */
+    min-height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    /* Perfect Circle */
+    aspect-ratio: 1;
+    /* New browser support for safety */
+
+    color: var(--color-white);
+    font-size: 1.4rem;
+    /* Larger icon to match new size */
+    transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+}
+
+/* Navbar - Floating Pill Design */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-bottom: none;
+    pointer-events: none;
+}
+
+.navbar nav {
+    pointer-events: auto;
+    /* Important: Center the UL */
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    /* Glassmorphism Configuration */
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    /* Layout */
+    display: inline-flex;
+    /* Ensure it wraps content strictly, not full width */
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 0.8rem 3rem;
+    margin: 0 auto;
+    list-style: none;
+    flex-wrap: nowrap;
+}
+
+.navbar a {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+/* Hover Effect - Sliding Underline */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 50%;
+    background-color: var(--color-white);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar a:hover {
+    color: var(--color-white);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 3rem;
+    }
+
+    /* Mobile Responsiveness for Navbar */
+    .navbar {
+        top: 20px;
+        /* Floating from top on mobile too, per user request */
+        bottom: auto;
+        /* Reset bottom */
+    }
+
+    .navbar ul {
+        padding: 0.8rem 1.5rem;
+        /* Slightly smaller padding */
+        gap: 1rem;
+        font-size: 0.7rem;
+    }
+
+    .cta-icons {
+        flex-direction: row;
+        /* Keep horizontal on mobile as requested */
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        margin-top: 6rem;
+        /* Adjusted for mobile too if needed, or inherited */
+    }
+
+    /* Mobile specific adjustments */
+    .icon-btn {
+        /* Ensure strict circle even on mobile */
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+}

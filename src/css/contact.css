@@ -1,0 +1,98 @@
+#contact {
+    background-color: var(--color-black);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.contact-image {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.contact-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    /* Optional: Fade into black at bottom or stylistic border */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.contact-image:hover img {
+    filter: grayscale(0%);
+}
+
+.contact-content {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-headline {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+}
+
+.artist-bio {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.main-contact-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.main-contact-btn:hover {
+    background: var(--color-primary);
+    /* Assuming explicit or just grey */
+    background: #ccc;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .contact-content {
+        text-align: center;
+    }
+
+    .contact-image {
+        max-width: 300px;
+    }
+
+    .contact-headline {
+        font-size: 2rem;
+    }
+}
