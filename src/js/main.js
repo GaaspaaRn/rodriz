@@ -30,28 +30,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function update() {
     const currentScrollY = window.scrollY;
+    // Calculate speed
     const speed = currentScrollY - lastScrollY;
     lastScrollY = currentScrollY;
 
     // Apply force based on speed
-    // If scrolling down (pos speed), skew one way. Up, skew other way.
-    let targetSkew = speed * sensitivity;
+    // "Aggressive" means we react strongly to speed.
+    // We add some chaos for "chacoalhar" (sideways shake)
 
-    // Clamp target
-    if (targetSkew > maxSkew) targetSkew = maxSkew;
-    if (targetSkew < -maxSkew) targetSkew = -maxSkew;
+    // Vertical Tilt (Rotate X) - Existing but stronger
+    let targetSkewX = speed * 0.8;
 
-    // Smoothly interpolate currentSkew towards targetSkew (or just set it for direct reactivity)
-    // Here we just use the speed frame directly but decay it if speed is 0
-    // A simple approach is adding speed to a velocity, but for "shake" direct mapping feels tighter.
+    // Horizontal Wobble (Rotate Y) - Random direction based on speed parity or just speed
+    // We can use a sine wave of the scroll position to alternate sides rapidly
+    let targetSkewY = speed * 0.5 * Math.sin(currentScrollY * 0.1);
 
-    currentSkew = targetSkew;
+    // Vertical Movement (Translate Y) - "Mais acima e mais abaixo"
+    // Move the element up/down based on speed to exaggerate the scroll feeling
+    let translateY = speed * 1.5;
+
+    // Clamp values to prevent breaking the layout too much
+    const limit = 45; // Huge limit for "aggressive"
+    if (targetSkewX > limit) targetSkewX = limit;
+    if (targetSkewX < -limit) targetSkewX = -limit;
+
+    // Determine rotation
+    // We combine them into a chaotic transform
 
     // Apply transform
-    // We keep the initial translate if needed, but CSS handles layout.
-    // We apply a rotation or skew. Rotate usually looks like a "dangle".
-    // Apply transform to wrapper only
-    albumWrapper.style.transform = `perspective(1000px) rotateX(${currentSkew}deg)`;
+    // perspective(1000px) is crucial for 3D feel
+    // rotateX: tilts up/down
+    // rotateY: tilts left/right (sideways wobble)
+    // translateY: physical up/down displacement
+    albumWrapper.style.transform = `
+      perspective(1000px) 
+      rotateX(${targetSkewX}deg) 
+      rotateY(${targetSkewY}deg) 
+      translateY(${translateY}px)
+      scale(${1 + Math.abs(speed * 0.002)}) /* Subtle zoom on fast scroll */
+    `;
 
     requestAnimationFrame(update);
   }
