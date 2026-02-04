@@ -48,7 +48,35 @@ video {
   transform: translateY(0);
 }
 
-/* Smooth Scroll */
+/* Smooth Scroll & Performance */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* Safety for navbar */
+}
+
+/* Micro-Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Optimize painting */
+.hero-content,
+img,
+video {
+  will-change: transform, opacity;
 }

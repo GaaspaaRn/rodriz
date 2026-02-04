@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSkew = 0;
 
   // Physics parameters
-  const maxSkew = 7; // Max degrees of wobble
+  // Physics parameters
+  const maxSkew = 20; // Aggressive wobble (was 7)
   const friction = 0.9; // Damping
-  const sensitivity = 0.15; // How much scroll speed affects skew
+  const sensitivity = 0.5; // Very sensitive to scroll speed (was 0.15)
 
   function update() {
     const currentScrollY = window.scrollY;

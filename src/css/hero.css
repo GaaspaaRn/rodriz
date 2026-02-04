@@ -49,11 +49,9 @@
        We remove z-index 999 into the stack natural order or explicit low z-index.
     */
     z-index: 1;
-
-    opacity: 0.6;
-    /* Increased opacity because it's now UNDER the dark overlay */
+    opacity: 0.35;
+    /* Reduced from 0.6 for subtle effect */
     mix-blend-mode: overlay;
-    /* Reage melhor em fundos escuros */
 }
 
 /* Remove old class styles if present to keep file clean */
