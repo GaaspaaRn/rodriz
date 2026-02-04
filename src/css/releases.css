@@ -190,7 +190,8 @@
 /* Recent Releases */
 #recent-releases {
     background-color: var(--color-black);
-    padding: 2rem 2rem 6rem 2rem;
+    padding: 6rem 2rem 6rem 2rem;
+    /* Restored standard top padding */
     /* Comfortable spacing */
     display: flex;
     align-items: center;
