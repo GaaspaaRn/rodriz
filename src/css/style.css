@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Hard Sports';
-  src: url('../assets/fonts/Hard Sports.woff2') format('woff2');
+  font-family: 'Expanse';
+  src: url('../assets/fonts/Expanse.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Nebula';
-  src: url('../assets/fonts/Nebula-Regular.woff2') format('woff2');
+  font-family: 'Proxon';
+  src: url('../assets/fonts/PROXON.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -18,8 +18,8 @@
   --color-black: #000000;
   --color-white: #FFFFFF;
   --color-gray: #1a1a1a;
-  --font-primary: 'Nebula', sans-serif;
-  --font-display: 'Hard Sports', sans-serif;
+  --font-primary: 'Proxon', sans-serif;
+  --font-display: 'Expanse', sans-serif;
 }
 
 * {
