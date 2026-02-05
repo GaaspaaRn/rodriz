@@ -169,16 +169,20 @@
     pointer-events: none;
 }
 
-/* Hero Content */
+/* Hero Content Layout */
 .hero-content {
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* Vertically center the Logo/Subtitle */
+    height: 100%;
+    /* Take full height of hero */
     gap: 1.5rem;
     padding: 0 1rem;
-    padding-bottom: 20vh;
-    /* More space for overlap */
+    padding-bottom: 0;
+    position: relative;
 }
 
 .logo-text {
@@ -201,55 +205,54 @@
     opacity: 0.9;
 }
 
-/* Buttons */
-.cta-icons {
+/* Hero Buttons - Positioned Absolutely at Bottom */
+.hero-content .footer-links {
+    position: absolute;
+    bottom: 15%;
+    /* Exact placement requested */
+    left: 0;
+    width: 100%;
     display: flex;
-    gap: 1.5rem;
-    /* Increased gap for cleaner look */
-    margin-top: 8rem;
-    /* Moved SIGNIFICANTLY lower as requested (was 4rem) */
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    z-index: 20;
 }
 
-/* Global Hero Buttons - Updated to Icon-Only Circle Style */
-.icon-btn {
-    /* Glassmorphism Configuration */
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-    /* Layout - Fixed Circle */
+/* Match Footer Style EXACTLY (No Box, Just Icons) */
+.hero-content .footer-links a {
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    width: 60px;
-    /* Slightly larger for better hit target */
-    height: 60px;
-    min-width: 60px;
-    /* Enforce size */
-    min-height: 60px;
-    padding: 0;
-    border-radius: 50%;
-    /* Perfect Circle */
-    aspect-ratio: 1;
-    /* New browser support for safety */
-
-    color: var(--color-white);
-    font-size: 1.4rem;
-    /* Larger icon to match new size */
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    /* Footer gray-ish */
+    font-size: 1.8rem;
+    /* Footer size */
     transition: all 0.3s ease;
+    text-decoration: none;
+
+    /* Reset any potential glassmorphism inherited */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
 }
 
-.icon-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
+.hero-content .footer-links a:hover {
     color: var(--color-white);
+    transform: translateY(-3px);
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Legacy .cta-icons clean up if needed */
+.cta-icons,
+.icon-btn {
+    display: none;
 }
 
 /* Navbar - Floating Pill Design */
@@ -350,23 +353,15 @@
         font-size: 0.7rem;
     }
 
-    .cta-icons {
-        flex-direction: row;
-        /* Keep horizontal on mobile as requested */
-        flex-wrap: wrap;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        gap: 1.2rem;
-        margin-top: 6rem;
-        /* Adjusted for mobile too if needed, or inherited */
+    /* Mobile adjustments */
+    .hero-content .footer-links {
+        bottom: 12%;
+        /* Slightly lower on mobile or adjust as needed */
+        gap: 1.5rem;
     }
 
-    /* Mobile specific adjustments */
-    .icon-btn {
-        /* Ensure strict circle even on mobile */
-        width: 50px;
-        height: 50px;
-        font-size: 1.1rem;
+    .hero-content .footer-links a {
+        font-size: 1.5rem;
+        /* Readable touch target */
     }
 }
