@@ -169,84 +169,109 @@
     pointer-events: none;
 }
 
-/* Hero Content Layout */
+/* Hero Section - Cinematic Update */
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    /* Slight dim for overlay */
+    transform: scale(1.1);
+    /* Ready for zoom out effect */
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.9) 100%);
+    z-index: 1;
+}
+
+#noise-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 2;
+}
+
 .hero-content {
+    position: relative;
     z-index: 10;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* Vertically center the Logo/Subtitle */
-    height: 100%;
-    /* Take full height of hero */
-    gap: 1.5rem;
-    padding: 0 1rem;
-    padding-bottom: 0;
-    position: relative;
+    mix-blend-mode: difference;
+    /* Makes text pop over video */
 }
 
-.logo-text {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin: 0;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+.hero-logo-img {
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+    opacity: 0;
+    /* JS handle fade in */
+    transform: scale(0.95);
 }
 
 .hero-subtitle {
-    font-family: var(--font-primary);
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    margin-top: -1rem;
-    opacity: 0.9;
-}
-
-/* Hero Buttons - Positioned Absolutely at Bottom */
-.hero-content .footer-links {
-    position: absolute;
-    bottom: 15%;
-    /* Exact placement requested */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
     margin: 0;
     z-index: 20;
 }
 
 /* Match Footer Style EXACTLY (No Box, Just Icons) */
+.hero-content .footer-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    /* Consistent large gap */
+    width: 100%;
+}
+
 .hero-content .footer-links a {
     display: flex;
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.7);
-    /* Footer gray-ish */
-    font-size: 1.8rem;
-    /* Footer size */
+    font-size: 2rem;
+    /* Slightly larger for hero impact */
     transition: all 0.3s ease;
     text-decoration: none;
-
-    /* Reset any potential glassmorphism inherited */
     background: transparent;
     border: none;
     box-shadow: none;
-    backdrop-filter: none;
     padding: 0;
-    width: auto;
-    height: auto;
-    border-radius: 0;
 }
 
 .hero-content .footer-links a:hover {
     color: var(--color-white);
-    transform: translateY(-3px);
-    background: transparent;
-    box-shadow: none;
+    transform: translateY(-3px) scale(1.1);
 }
 
 /* Legacy .cta-icons clean up if needed */

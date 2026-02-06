@@ -1,38 +1,65 @@
-export function initAnimations() {
-    const reveals = document.querySelectorAll('.reveal');
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // observer.unobserve(entry.target); // Optional: Run once
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+gsap.registerPlugin(ScrollTrigger);
+
+export function initAnimations() {
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // Select elements
+    const logo = document.querySelector('.hero-logo-img');
+    const subtitle = document.querySelector('.hero-subtitle');
+    const socials = document.querySelector('.footer-links');
+    const scrollCue = document.querySelector('.scroll-cue');
+    const video = document.querySelector('.video-background video');
+
+    // Initial States (in case CSS didn't catch them, but better to rely on CSS for FOUC)
+    gsap.set([logo, subtitle, socials, scrollCue], { autoAlpha: 0 });
+    gsap.set(logo, { scale: 0.95, filter: 'blur(5px)' });
+    gsap.set(subtitle, { y: 20 });
+    gsap.set(socials, { y: 20 });
+
+    // Intro Sequence
+    heroTl
+        .to(video, { scale: 1, duration: 3, ease: 'power1.inOut' }, 0) // Video subtle zoom reset
+        .to(logo, {
+            autoAlpha: 1,
+            scale: 1,
+            filter: 'blur(0px)',
+            duration: 2.5
+        }, 0.5)
+        .to(subtitle, { autoAlpha: 1, y: 0, duration: 1.5 }, '-=1.5')
+        .to(socials, { autoAlpha: 1, y: 0, duration: 1 }, '-=1.0')
+        .to(scrollCue, { autoAlpha: 1, duration: 1 }, '-=0.5');
+
+    // Hero Logo Parallax / Fade on scroll
+    gsap.to(logo, {
+        scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true
+        },
+        y: 100,
+        opacity: 0,
+        scale: 0.9
     });
 
-    reveals.forEach(el => observer.observe(el));
-
-    // Specific logic for Album Cover Parallax/Scroll Animation
-    const albumCover = document.querySelector('.album-cover');
-    if (albumCover) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            // Create a subtle "floating" or "shake" effect based on scroll speed/position
-            // Dividing by a larger number makes it subtle. 
-            // We want it to stay mostly in place but feel 'loose'.
-            const offset = Math.sin(scrollY * 0.05) * 5; // -5px to 5px wobble
-
-            // Apply transform. Note: We must respect the slideUpFade animation logic.
-            // Since slideUpFade sets final state to translateY(0), we can just modify it here.
-            // However, inline styles override CSS animations once set.
-            // We must add the offset to the base position.
-            requestAnimationFrame(() => {
-                albumCover.style.transform = `translateY(${offset}px)`;
-            });
-
-        }, { passive: true });
-    }
+    // Global Reveal Animation (for sections with .reveal class)
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => {
+        gsap.fromTo(el,
+            { autoAlpha: 0, y: 50 },
+            {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                }
+            }
+        );
+    });
 }

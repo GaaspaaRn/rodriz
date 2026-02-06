@@ -1,0 +1,69 @@
+/* Social Proof - On Stage Section */
+#on-stage {
+    padding: 4rem 2rem;
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+.on-stage-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.on-stage-header h2 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.on-stage-header p {
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+}
+
+.video-grid {
+    display: grid;
+    /* 4 items now */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1400px;
+    /* Increased max-width for 4 items */
+    margin: 0 auto;
+}
+
+.video-item {
+    aspect-ratio: 9/16;
+    background: #111;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+.video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+}
+
+.video-item:hover video {
+    filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem;
+    }
+
+    .video-item:nth-child(3),
+    .video-item:nth-child(4) {
+        display: block;
+        /* Ensure all are shown, or maybe hide 3&4 if too tall? Let's show all 4 in 2x2 grid */
+    }
+}

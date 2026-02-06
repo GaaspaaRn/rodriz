@@ -1,10 +1,126 @@
-/* Tour Dates Section */
+/* Tour Section - Professional List */
 #shows {
     background-color: var(--color-black);
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+
+.section-header {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+.tour-list {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.tour-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s var(--ease-out-expo);
+    cursor: pointer;
+    /* Interaction hint */
+}
+
+.tour-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tour-item:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 2rem 2.5rem;
+    /* Enlarge horizontal */
+}
+
+/* Date */
+.tour-date {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.tour-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.tour-date .month {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.tour-item:hover .tour-date .month {
+    opacity: 1;
+    color: var(--color-black);
+}
+
+/* Info */
+.tour-info {
+    padding-left: 2rem;
+}
+
+.tour-info .city {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tour-info .venue {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+}
+
+.tour-item:hover .tour-info .venue {
+    opacity: 0.8;
+}
+
+/* Next Show Highlight (Logic or Visual Class) */
+.tour-item.next-show {
+    border-top: 1px solid var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+}
+
+/* CTA - "Contrate um show" is in Contact section, but if there was specific ticket logic here: */
+.tour-action {
+    display: none;
+    /* Unless we have ticket links */
+}
+
+@media (max-width: 768px) {
+    .tour-item {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .section-header {
+        font-size: 2.5rem;
+    }
+
+    .tour-item:hover {
+        padding: 1.5rem 1rem;
+        /* Less expansion on mobile */
+    }
 }
 
 .section-header {

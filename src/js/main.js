@@ -4,14 +4,21 @@ import '../css/releases.css';
 import '../css/tour.css';
 import '../css/visualizers.css';
 import '../css/contact.css';
+import '../css/social-proof.css';
 import { initCarousel } from './releases.js';
+import { initTour } from './tour.js';
 import { initAnimations } from './animations.js';
 import { initGrain } from './grain.js';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 console.log('DJ Rodriz Site Loaded');
 initCarousel();
 initAnimations();
 initGrain();
+initTour();
 
 // Album Shake Animation
 document.addEventListener('DOMContentLoaded', () => {

@@ -38,6 +38,7 @@
       <div class="dark-overlay"></div>
     </div>
 
+    <!-- Hero Content (Dedicated animation in animations.js, no .reveal needed) -->
     <div class="hero-content reveal">
       <!-- Replaced Text Logo with Image -->
       <img src="/fotos/logo-dj-rodriz.PNG" alt="DJ RODRIZ" class="hero-logo-img float-animation"
@@ -56,6 +57,10 @@
             class="fab fa-soundcloud"></i></a>
       </div>
     </div>
+    <div class="scroll-cue">
+      <!-- Text removed as requested -->
+      <div class="scroll-line"></div>
+    </div>
   </section>
 
   <!-- Latest Release Section REMOVED -->
@@ -64,102 +69,64 @@
 
   <!-- Recent Releases Section -->
   <section id="recent-releases" class="reveal">
-    <div class="section-title-vertical">
-      <h2>RELEASES</h2>
-    </div>
+    <h2 class="section-header-3d">SONS</h2>
 
-    <div class="carousel-wrapper">
-      <button class="nav-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-
-      <div class="carousel-track">
-        <!-- Updated Spotify Embeds -->
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/1T0Za0ldouSRjRMH94SwWI?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/6i1q1P90W9fsW6S9UMv1ay?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/6klY5Kay7mnIz1I2qTH3Kf?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/2ohAdFi4UFzNCtSwwyvKba?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/3OXMbP3WG2XVrMELZYlmG6?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-        <div class="release-card"><iframe data-testid="embed-iframe" style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/5esvgH0I4F6wyvPShJT7cD?utm_source=generator" frameBorder="0"
-            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
+    <div class="cylinder-wrapper">
+      <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+      <div class="cylinder-container">
+        <!-- Spotify Embeds as Faces -->
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/1T0Za0ldouSRjRMH94SwWI?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/6i1q1P90W9fsW6S9UMv1ay?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/6klY5Kay7mnIz1I2qTH3Kf?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/2ohAdFi4UFzNCtSwwyvKba?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/3OXMbP3WG2XVrMELZYlmG6?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
+        <div class="cylinder-face"><iframe
+            src="https://open.spotify.com/embed/track/5esvgH0I4F6wyvPShJT7cD?utm_source=generator" loading="lazy"
+            scrolling="no" style="overflow:hidden"></iframe></div>
       </div>
-
-      <button class="nav-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
 
   <!-- Visualizers Section -->
   <section id="visualizers" class="reveal">
-    <div class="section-title-vertical">
-      <h2>VISUALIZERS</h2>
+    <h2 class="section-header-3d">VISUALIZERS</h2>
+
+    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+    <div class="cylinder-container">
+      <!-- YouTube Embeds as Faces -->
+      <div class="cylinder-face"><iframe src="https://www.youtube.com/embed/x9mZ-fCKjLQ?si=DUg5z07LRXuDKFFL"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="cylinder-face"><iframe src="https://www.youtube.com/embed/Sr9h-0vTMvU?si=ZmIBCTzjFf0OdMv5"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="cylinder-face"><iframe src="https://www.youtube.com/embed/sHf7p-rlgVI?si=xouNFv2wtsCiygTp"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="cylinder-face"><iframe src="https://www.youtube.com/embed/G2Ez0dVPx-g?si=qXUmGrIddtIhhrJ6"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="cylinder-face"><iframe src="https://www.youtube.com/embed/pQWnIYFiUaU?si=y8R-TTts3gqNZ1MU"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
-
-    <div class="carousel-wrapper">
-      <button class="nav-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-
-      <div class="carousel-track">
-        <!-- YouTube Embeds -->
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/x9mZ-fCKjLQ?si=DUg5z07LRXuDKFFL"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Sr9h-0vTMvU?si=ZmIBCTzjFf0OdMv5"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/sHf7p-rlgVI?si=xouNFv2wtsCiygTp"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/G2Ez0dVPx-g?si=qXUmGrIddtIhhrJ6"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/pQWnIYFiUaU?si=y8R-TTts3gqNZ1MU"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="release-card video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/JwF-MtrCWpM?si=zLOHt9EmYbfk4EVv"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <button class="nav-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-    </div>
+    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
   </section>
 
   <!-- Tour Dates Section -->
@@ -209,6 +176,20 @@
     </div>
   </section>
 
+  <!-- Social Proof / On Stage Section -->
+  <section id="on-stage" class="reveal">
+    <div class="on-stage-header">
+      <h2>ON STAGE</h2>
+      <p>LIVE ENERGY</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-item"><video src="/videos/rodriz1.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-item"><video src="/videos/rodriz2.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-item"><video src="/videos/rodriz3.mp4" autoplay muted loop playsinline></video></div>
+      <div class="video-item"><video src="/videos/rodriz4.mp4" autoplay muted loop playsinline></video></div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="reveal">
     <div class="contact-container">
@@ -216,7 +197,7 @@
         <img src="/fotos/dj-rodriz-foto.png" alt="DJ Rodriz" loading="lazy">
       </div>
       <div class="contact-content">
-        <p class="artist-bio">
+        <p class="artist-manifesto">
           Rodriz, DJ e produtor musical, iniciou sua trajetória aos
           16 anos, produzindo com foco em energia de pista e impacto sonoro.<br><br>
           Aos 18 anos, consolidou seu nome e foi reconhecido em 2025 como uma das revelações
