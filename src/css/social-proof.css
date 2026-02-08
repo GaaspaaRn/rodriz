@@ -37,7 +37,8 @@
 
 .video-item {
     aspect-ratio: 9/16;
-    background: #111;
+    background: var(--color-surface);
+    /* Stone-900 */
     overflow: hidden;
     position: relative;
     border-radius: 4px;

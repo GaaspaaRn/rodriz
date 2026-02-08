@@ -245,83 +245,65 @@
 }
 
 /* Match Footer Style EXACTLY (No Box, Just Icons) */
-.hero-content .footer-links {
-    margin-top: 2rem;
+/* Social Gradient Menu (Replaces generic footer-links) */
+/* Social Gradient Menu (Replaces generic footer-links) */
+.social-gradient-menu {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    /* Consistent large gap */
-    width: 100%;
-}
-
-.hero-content .footer-links a {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 2rem;
-    /* Slightly larger for hero impact */
-    transition: all 0.3s ease;
-    text-decoration: none;
-    background: transparent;
-    border: none;
-    box-shadow: none;
+    gap: 1.5rem;
+    list-style: none;
     padding: 0;
+    margin-top: 2rem;
 }
 
-.hero-content .footer-links a:hover {
-    color: var(--color-white);
-    transform: translateY(-3px) scale(1.1);
+.social-gradient-menu li {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: var(--color-surface);
+    /* Fallback/Base */
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Customize easing */
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Legacy .cta-icons clean up if needed */
-.cta-icons,
-.icon-btn {
-    display: none;
+.social-gradient-menu li:hover {
+    width: 180px;
+    box-shadow: none;
+    /* Shadow disappears as glow takes over */
 }
+
+/* ... */
 
 /* Navbar - Floating Pill Design */
-.navbar {
-    position: fixed;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    padding: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border-bottom: none;
-    pointer-events: none;
-}
-
-.navbar nav {
-    pointer-events: auto;
-    /* Important: Center the UL */
-    display: flex;
-    justify-content: center;
-}
-
 .navbar ul {
-    /* Glassmorphism Configuration */
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    /* Design System: Liquid Glass Pill */
+    background: rgba(28, 25, 23, 0.6);
+    /* Stone-900 with opacity */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+    /* Floating Pill */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 
     /* Layout */
     display: inline-flex;
-    /* Ensure it wraps content strictly, not full width */
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    padding: 0.8rem 3rem;
+    padding: 1rem 3.5rem;
+    /* Slightly larger padding */
     margin: 0 auto;
     list-style: none;
     flex-wrap: nowrap;
+    transition: all 0.3s ease;
 }
 
 .navbar a {
@@ -378,15 +360,27 @@
         font-size: 0.7rem;
     }
 
-    /* Mobile adjustments */
-    .hero-content .footer-links {
-        bottom: 12%;
-        /* Slightly lower on mobile or adjust as needed */
-        gap: 1.5rem;
+    /* Mobile adjustments for Gradient Menu */
+    .social-gradient-menu {
+        gap: 1rem;
+        margin-top: 1.5rem;
     }
 
-    .hero-content .footer-links a {
-        font-size: 1.5rem;
-        /* Readable touch target */
+    .social-gradient-menu li {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-gradient-menu li:hover {
+        width: 140px;
+        /* Smaller expansion on mobile */
+    }
+
+    .social-gradient-menu .icon {
+        font-size: 1.25rem;
+    }
+
+    .social-gradient-menu .title {
+        font-size: 0.75rem;
     }
 }

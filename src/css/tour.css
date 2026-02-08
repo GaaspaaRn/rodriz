@@ -176,7 +176,7 @@
 .tour-date .month {
     font-size: 1rem;
     font-weight: 400;
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 .tour-info {
@@ -193,7 +193,7 @@
 
 .tour-info .venue {
     font-size: 0.9rem;
-    color: #888;
+    color: var(--color-text-muted);
     margin-top: 0.25rem;
 }
 
@@ -232,7 +232,7 @@
 
 .artist-bio {
     font-size: 1.2rem;
-    color: #aaa;
+    color: var(--color-text-muted);
     margin-bottom: 2rem;
     max-width: 600px;
     line-height: 1.6;
@@ -279,7 +279,7 @@ footer {
 
 .footer-bookings {
     margin-bottom: 2rem;
-    color: #ccc;
+    color: var(--color-text-muted);
 }
 
 .footer-bookings h3 {
@@ -308,7 +308,7 @@ footer {
 .footer-links a {
     font-size: 1.8rem;
     /* Icon size */
-    color: #ccc;
+    color: var(--color-text-muted);
     transition: all 0.3s;
     display: flex;
     align-items: center;
@@ -338,7 +338,7 @@ footer {
 
 .footer-copy {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--color-text-muted);
 }
 
 .footer-copy p {

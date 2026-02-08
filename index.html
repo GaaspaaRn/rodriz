@@ -8,6 +8,12 @@
   <title>DJ Rodriz</title>
   <!-- Google Fonts -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,16 +52,44 @@
 
       <h2 class="hero-subtitle">DJ & PRODUCER</h2>
 
-      <div class="footer-links">
-        <a href="https://www.instagram.com/rodrizdj/?hl=pt-br" target="_blank" aria-label="Instagram"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP" target="_blank" aria-label="Spotify"><i
-            class="fab fa-spotify"></i></a>
-        <a href="https://www.youtube.com/djrodriz1" target="_blank" aria-label="YouTube"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://soundcloud.com/rodrizdj" target="_blank" aria-label="SoundCloud"><i
-            class="fab fa-soundcloud"></i></a>
-      </div>
+      <ul class="social-gradient-menu">
+        <!-- Instagram -->
+        <li style="--gradient-from: #833ab4; --gradient-to: #fd1d1d;">
+          <a href="https://www.instagram.com/rodrizdj/?hl=pt-br" target="_blank" aria-label="Instagram">
+            <span class="icon"><i class="fab fa-instagram"></i></span>
+            <span class="title">Instagram</span>
+            <div class="gradient-bg"></div>
+            <div class="gradient-blur"></div>
+          </a>
+        </li>
+        <!-- Spotify -->
+        <li style="--gradient-from: #1DB954; --gradient-to: #191414;">
+          <a href="https://open.spotify.com/intl-pt/artist/3s085Y3JMDExHJiZzDxhUP" target="_blank" aria-label="Spotify">
+            <span class="icon"><i class="fab fa-spotify"></i></span>
+            <span class="title">Spotify</span>
+            <div class="gradient-bg"></div>
+            <div class="gradient-blur"></div>
+          </a>
+        </li>
+        <!-- YouTube -->
+        <li style="--gradient-from: #FF0000; --gradient-to: #D00000;">
+          <a href="https://www.youtube.com/djrodriz1" target="_blank" aria-label="YouTube">
+            <span class="icon"><i class="fab fa-youtube"></i></span>
+            <span class="title">YouTube</span>
+            <div class="gradient-bg"></div>
+            <div class="gradient-blur"></div>
+          </a>
+        </li>
+        <!-- SoundCloud -->
+        <li style="--gradient-from: #ff8800; --gradient-to: #ff3300;">
+          <a href="https://soundcloud.com/rodrizdj" target="_blank" aria-label="SoundCloud">
+            <span class="icon"><i class="fab fa-soundcloud"></i></span>
+            <span class="title">SoundCloud</span>
+            <div class="gradient-bg"></div>
+            <div class="gradient-blur"></div>
+          </a>
+        </li>
+      </ul>
     </div>
     <div class="scroll-cue">
       <!-- Text removed as requested -->
@@ -204,7 +238,7 @@
           nova geração em ascensão.
         </p>
         <h2 class="contact-headline">LEVE PARA O SEU EVENTO</h2>
-        <a href="mailto:contato@djrodriz.com" class="main-contact-btn">CONTRATE UM SHOW</a>
+        <a href="mailto:contato@djrodriz.com" class="main-contact-btn"><span>CONTRATE UM SHOW</span></a>
       </div>
     </div>
   </section>

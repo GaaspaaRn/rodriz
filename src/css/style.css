@@ -15,16 +15,35 @@
 }
 
 :root {
-  --color-black: #080808;
-  /* Deep black per plan */
-  --color-black-pure: #000000;
-  --color-white: #FFFFFF;
-  --color-gray: #1a1a1a;
-  --color-accent: #ffffff;
-  /* Use white as primary accent for outline styles */
+  /* Design System: Liquid Glass Dark */
+  --color-primary: #0C0A09;
+  /* Stone-950 (Deep Background) */
+  --color-surface: #1C1917;
+  /* Stone-900 (Card/Section Bg) */
+  --color-secondary: #292524;
+  /* Stone-800 (Borders/Accents) */
+  --color-cta: #CA8A04;
+  /* Amber-600 (Signal Accent) */
+  --color-cta-hover: #D97706;
+  /* Amber-500 */
+  --color-text: #F5F5F4;
+  /* Stone-100 (Primary Text) */
+  --color-text-muted: #A8A29E;
+  /* Stone-400 (Secondary Text) */
 
-  --font-primary: 'Proxon', sans-serif;
-  --font-display: 'Expanse', sans-serif;
+  /* Legacy mappings for compatibility */
+  --color-black: var(--color-primary);
+  --color-white: var(--color-text);
+  --color-gray: var(--color-surface);
+  --color-accent: var(--color-cta);
+
+  /* Typography */
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  /* Mapped to existing variables */
+  --font-display: var(--font-heading);
+  --font-primary: var(--font-body);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
@@ -49,9 +68,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+a,
+button {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+  /* Interaction Rule 1 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Liquid Flow Transition */
 }
 
 ul {
