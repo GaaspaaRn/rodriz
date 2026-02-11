@@ -16,12 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 console.log('DJ Rodriz Site Loaded');
 initCarousel();
-initAnimations();
 initGrain();
 initTour();
 
-// Album Shake Animation
 document.addEventListener('DOMContentLoaded', () => {
+  initAnimations();
+  initLiquidEffect(); // Start Water Effect
+
   // Select the wrapper that handles the shake, NOT the layout container
   const albumWrapper = document.querySelector('.album-shake-wrapper');
   if (!albumWrapper) return;

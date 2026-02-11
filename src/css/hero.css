@@ -221,6 +221,22 @@
     z-index: 2;
 }
 
+#liquid-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Above video(0), below noise(2) & overlay(1-dark) */
+    pointer-events: auto;
+    /* Needs mouse events for ripple effect */
+    opacity: 0.6;
+    /* Semi-transparent to blend with video */
+    mix-blend-mode: hard-light;
+    /* Blend effect for water look */
+}
+
 .hero-content {
     position: relative;
     z-index: 10;
@@ -262,24 +278,75 @@
     width: 60px;
     height: 60px;
     background: var(--color-surface);
-    /* Fallback/Base */
+    /* Fallback */
     border-radius: 9999px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Customize easing */
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* CRITICAL FIX: Hide the absolute title when not hovered */
+    overflow: hidden;
 }
 
 .social-gradient-menu li:hover {
     width: 180px;
     box-shadow: none;
-    /* Shadow disappears as glow takes over */
 }
 
-/* ... */
+/* Ensure background gradient is below content */
+.gradient-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(45deg, var(--gradient-from), var(--gradient-to));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.social-gradient-menu li:hover .gradient-bg {
+    opacity: 1;
+}
+
+/* Icons must be visible on top of background */
+.social-gradient-menu .icon {
+    position: relative;
+    z-index: 10;
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    transition: all 0.5s ease;
+}
+
+.social-gradient-menu li:hover .icon {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Title must be visible on top */
+/* Navbar - Floating Pill Design Layout */
+/* Navbar - Floating Pill Design Layout */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-bottom: none;
+    pointer-events: none;
+}
+
+.navbar nav {
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+}
 
 /* Navbar - Floating Pill Design */
 .navbar ul {
@@ -304,6 +371,32 @@
     list-style: none;
     flex-wrap: nowrap;
     transition: all 0.3s ease;
+}
+
+/* Social Gradient Menu Title - Visible on Hover */
+.social-gradient-menu .title {
+    position: absolute;
+    inset: 0;
+    /* Forces full width/height of parent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transition-delay: 0.1s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.social-gradient-menu li:hover .title {
+    opacity: 1;
 }
 
 .navbar a {
